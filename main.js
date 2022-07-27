@@ -3,10 +3,10 @@ const btn = document.querySelectorAll(".selection");
 const computerChoice = document.querySelector('.computerChoice');
 const userPoints = document.querySelector(".userPoints");
 const compPoints = document.querySelector(".compPoints");
+const resultText = document.querySelector('.result-text');
 
 // initialize variables
-let computerSelect;
-let userSelect;
+let computerSelect, userSelect;
 let computerScore = 0;
 let userScore = 0;
 
@@ -26,6 +26,10 @@ for(var i=0;i<btn.length;i++){
         // winner()
         winner(userSelect,computerSelect);
         // alert(computerSelect);
+
+        // update score total
+        compPoints.textContent = `${computerScore}`;
+        userPoints.textContent = `${userScore}`;
     })
 }
 
@@ -80,44 +84,54 @@ function winner(userSelect, computerSelect){
 }
 */
 
+// Win-Loss Logic
 function winner(userSelect, computerSelect){
     if(userSelect == "ROCK"){
         if(computerSelect == "ROCK"){
             console.log("TIE");
+            resultText.textContent = 'Tie';
         }
         else if(computerSelect == "PAPER"){
             console.log("LOSE");
+            resultText.textContent = 'Loss';
+            computerScore++;
         }
         else if(computerSelect == "SCISSORS"){
             console.log("WIN");
+            resultText.textContent = 'Win!';
+            userScore++;
         }
     }
-
     else if(userSelect == "PAPER"){
         if(computerSelect == "ROCK"){
             console.log("WIN");
+            resultText.textContent = 'Win!';
+            userScore++;
         }
         else if(computerSelect == "PAPER"){
             console.log("TIE");
+            resultText.textContent = 'Tie';
         }
         else if(computerSelect == "SCISSORS"){
             console.log("LOSE");
+            resultText.textContent = 'Loss';
+            computerScore++;
         }
     }
-
     else if(userSelect == "SCISSORS"){
         if(computerSelect == "ROCK"){
             console.log("LOSE");
+            resultText.textContent = 'Loss';
+            computerScore++;
         }
         else if(computerSelect == "PAPER"){
             console.log("WIN");
+            resultText.textContent = 'Win!';
+            userScore++;
         }
         else if(computerSelect == "SCISSORS"){
             console.log("TIE");
+            resultText.textContent = 'Tie';
         }
-    }
-    
-    // move this out of function? 
-    // compPoints.textContent = `${computerScore}`;
-    // userPoints.textContent = `${userScore}`;
+    }    
 }
