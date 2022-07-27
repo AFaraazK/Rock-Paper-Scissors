@@ -1,0 +1,41 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(38, 42, 42);
+    color:aliceblue;
+}
+.container{
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.selections button{
+    border:none;
+    background:none;
+    outline: none;
+    height: 64px;
+    width:64px;
+    font-size: 48px;
+    margin: 0 16px;
+    transition-delay: 25ms;
+}
+.selection:hover{
+    transform: scale(1.2);
+}
+
+#computerChose{
+    margin-top:64px;
+}
+.computerChoice{
+    height:100px;
+    width:100px;
+    border-style: dotted;
+}
+.points{
+    font-size: 24px;
+    margin-top: 64px;
+    width:300px;
+    display: flex;
+    justify-content: space-between;
+}
