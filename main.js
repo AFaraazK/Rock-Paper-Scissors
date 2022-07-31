@@ -12,9 +12,10 @@ let userScore = 0;
 
 for(var i=0;i<btn.length;i++){
     btn[i].addEventListener('click',e => {
+        // get user and computer throws
         userSelect = e.target.id;
-        // computerThrows()
         computerSelect = computerThrows();
+
         // replace computerChoice .textContent
         if(computerSelect == 'ROCK'){
             computerChoice.textContent = '✊';
@@ -23,9 +24,8 @@ for(var i=0;i<btn.length;i++){
         } else if (computerSelect == "SCISSORS"){
             computerChoice.textContent = '✌️';
         }
-        // winner()
+
         winner(userSelect,computerSelect);
-        // alert(computerSelect);
 
         // update score total
         compPoints.textContent = `${computerScore}`;
@@ -50,87 +50,45 @@ function computerThrows(){
     }
 }
 
-/*
-function winner(userSelect, computerSelect){
-    if(userSelect == computerSelect){
-    } else if(computerSelect == "ROCK"){
-        if(userSelect == "PAPER"){
-            userScore++;
-        }
-        else if(userScore == "SCISSORS"){
-            computerScore++;
-            console.log('Computer wins');
-        }
-    } else if(computerSelect == "PAPER"){
-        if(userSelect == "SCISSORS"){
-            userScore++;
-        }
-        else if(userScore == "ROCK"){
-            computerScore++;
-            console.log('Computer wins');
-        }
-    } else if(computerSelect == "SCISSORS"){
-        if(userSelect == "ROCK"){
-            userScore++;
-        }
-        else if(userScore == "PAPER"){
-            computerScore++;
-            console.log('Computer wins');
-        }
-    }
-
-    compPoints.textContent = `${computerScore}`;
-    userPoints.textContent = `${userScore}`;
-}
-*/
 
 // Win-Loss Logic
 function winner(userSelect, computerSelect){
     if(userSelect == "ROCK"){
         if(computerSelect == "ROCK"){
-            console.log("TIE");
             resultText.textContent = 'Tie';
         }
         else if(computerSelect == "PAPER"){
-            console.log("LOSE");
             resultText.textContent = 'Loss';
             computerScore++;
         }
         else if(computerSelect == "SCISSORS"){
-            console.log("WIN");
             resultText.textContent = 'Win!';
             userScore++;
         }
     }
     else if(userSelect == "PAPER"){
         if(computerSelect == "ROCK"){
-            console.log("WIN");
             resultText.textContent = 'Win!';
             userScore++;
         }
         else if(computerSelect == "PAPER"){
-            console.log("TIE");
             resultText.textContent = 'Tie';
         }
         else if(computerSelect == "SCISSORS"){
-            console.log("LOSE");
             resultText.textContent = 'Loss';
             computerScore++;
         }
     }
     else if(userSelect == "SCISSORS"){
         if(computerSelect == "ROCK"){
-            console.log("LOSE");
             resultText.textContent = 'Loss';
             computerScore++;
         }
         else if(computerSelect == "PAPER"){
-            console.log("WIN");
             resultText.textContent = 'Win!';
             userScore++;
         }
         else if(computerSelect == "SCISSORS"){
-            console.log("TIE");
             resultText.textContent = 'Tie';
         }
     }    
